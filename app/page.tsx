@@ -62,7 +62,7 @@ export default function Home() {
                 </div>
               </div>
               <img
-                src="/placeholder.svg?height=550&width=550"
+                src="https://i.pinimg.com/736x/a8/3c/6d/a83c6d06140d17a9be83e4f025d4e511.jpg?height=550&width=550"
                 alt="FitIQ Dashboard Preview"
                 width={550}
                 height={550}
