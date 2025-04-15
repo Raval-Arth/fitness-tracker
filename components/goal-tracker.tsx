@@ -54,12 +54,6 @@ export function GoalTracker() {
           </div>
         )
       })}
-
-      <Button variant="outline" size="sm" className="w-full mt-4">
-        <Plus className="h-4 w-4 mr-2" />
-        Add New Goal
-      </Button>
     </div>
   )
 }
-

@@ -35,20 +35,6 @@ export default function Dashboard() {
             <Activity className="h-6 w-6 text-primary" />
             <span>FitIQ</span>
           </div>
-          <div className="flex items-center gap-4">
-            <Button variant="ghost" size="icon" className="rounded-full" asChild>
-              <Link href="/settings">
-                <Settings className="h-5 w-5" />
-                <span className="sr-only">Settings</span>
-              </Link>
-            </Button>
-            <Button variant="ghost" size="icon" className="rounded-full" asChild>
-              <Link href="/profile">
-                <User className="h-5 w-5" />
-                <span className="sr-only">Profile</span>
-              </Link>
-            </Button>
-          </div>
         </div>
       </header>
       <div className="grid flex-1 md:grid-cols-[240px_1fr]">
@@ -64,45 +50,23 @@ export default function Dashboard() {
                   <Home className="mr-2 h-4 w-4" />
                   Overview
                 </Button>
-                <Button
-                  variant={activeTab === "activity" ? "secondary" : "ghost"}
-                  className="justify-start"
-                  onClick={() => setActiveTab("activity")}
-                >
-                  <Activity className="mr-2 h-4 w-4" />
-                  Activity
+                <Button variant="ghost" className="justify-start" asChild>
+                  <Link href="/dashboard/activity">
+                    <Activity className="mr-2 h-4 w-4" />
+                    Activity
+                  </Link>
                 </Button>
-                <Button
-                  variant={activeTab === "health" ? "secondary" : "ghost"}
-                  className="justify-start"
-                  onClick={() => setActiveTab("health")}
-                >
-                  <Heart className="mr-2 h-4 w-4" />
-                  Health Metrics
+                <Button variant="ghost" className="justify-start" asChild>
+                  <Link href="/dashboard/health">
+                    <Heart className="mr-2 h-4 w-4" />
+                    Health Metrics
+                  </Link>
                 </Button>
-                <Button
-                  variant={activeTab === "goals" ? "secondary" : "ghost"}
-                  className="justify-start"
-                  onClick={() => setActiveTab("goals")}
-                >
-                  <TrendingUp className="mr-2 h-4 w-4" />
-                  Goals
-                </Button>
-                <Button
-                  variant={activeTab === "insights" ? "secondary" : "ghost"}
-                  className="justify-start"
-                  onClick={() => setActiveTab("insights")}
-                >
-                  <BarChart2 className="mr-2 h-4 w-4" />
-                  Insights
-                </Button>
-                <Button
-                  variant={activeTab === "calendar" ? "secondary" : "ghost"}
-                  className="justify-start"
-                  onClick={() => setActiveTab("calendar")}
-                >
-                  <Calendar className="mr-2 h-4 w-4" />
-                  Calendar
+                <Button variant="ghost" className="justify-start" asChild>
+                  <Link href="/dashboard/goals">
+                    <TrendingUp className="mr-2 h-4 w-4" />
+                    Goals
+                  </Link>
                 </Button>
               </nav>
             </div>
@@ -111,13 +75,23 @@ export default function Dashboard() {
         <div className="flex flex-col">
           <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-8">
             <Tabs defaultValue="overview" className="space-y-4" value={activeTab} onValueChange={setActiveTab}>
-              <div className="flex items-center md:hidden">
-                <TabsList>
-                  <TabsTrigger value="overview">Overview</TabsTrigger>
-                  <TabsTrigger value="activity">Activity</TabsTrigger>
-                  <TabsTrigger value="health">Health</TabsTrigger>
-                  <TabsTrigger value="goals">Goals</TabsTrigger>
-                  <TabsTrigger value="insights">Insights</TabsTrigger>
+              <div className="flex items-center md:hidden overflow-auto">
+                <TabsList className="w-full">
+                  <TabsTrigger value="overview" asChild>
+                    <Link href="/dashboard">Overview</Link>
+                  </TabsTrigger>
+                  <TabsTrigger value="activity" asChild>
+                    <Link href="/dashboard/activity">Activity</Link>
+                  </TabsTrigger>
+                  <TabsTrigger value="health" asChild>
+                    <Link href="/dashboard/health">Health</Link>
+                  </TabsTrigger>
+                  <TabsTrigger value="goals" asChild>
+                    <Link href="/dashboard/goals">Goals</Link>
+                  </TabsTrigger>
+                  <TabsTrigger value="insights" asChild>
+                    <Link href="/dashboard/insights">Insights</Link>
+                  </TabsTrigger>
                 </TabsList>
               </div>
               <TabsContent value="overview" className="space-y-4">
@@ -160,22 +134,22 @@ export default function Dashboard() {
                       <div className="mt-2 grid grid-cols-4 gap-1">
                         <div className="flex flex-col items-center">
                           <span className="text-xs font-medium">Deep</span>
-                          <Progress value={80} className="h-12 w-2 rounded-full" orientation="vertical" />
+                          <Progress value={80} className="h-12 w-2 rounded-full" />
                           <span className="text-xs">2h</span>
                         </div>
                         <div className="flex flex-col items-center">
                           <span className="text-xs font-medium">Light</span>
-                          <Progress value={60} className="h-12 w-2 rounded-full" orientation="vertical" />
+                          <Progress value={60} className="h-12 w-2 rounded-full" />
                           <span className="text-xs">3h</span>
                         </div>
                         <div className="flex flex-col items-center">
                           <span className="text-xs font-medium">REM</span>
-                          <Progress value={40} className="h-12 w-2 rounded-full" orientation="vertical" />
+                          <Progress value={40} className="h-12 w-2 rounded-full" />
                           <span className="text-xs">1.5h</span>
                         </div>
                         <div className="flex flex-col items-center">
                           <span className="text-xs font-medium">Awake</span>
-                          <Progress value={20} className="h-12 w-2 rounded-full" orientation="vertical" />
+                          <Progress value={20} className="h-12 w-2 rounded-full" />
                           <span className="text-xs">0.7h</span>
                         </div>
                       </div>
@@ -318,30 +292,6 @@ export default function Dashboard() {
                   </CardContent>
                 </Card>
               </TabsContent>
-              <TabsContent value="insights" className="space-y-4">
-                <Card>
-                  <CardHeader>
-                    <CardTitle>AI Insights</CardTitle>
-                    <CardDescription>Personalized insights and predictions</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="text-center text-muted-foreground py-10">
-                      AI insights content will be displayed here
-                    </div>
-                  </CardContent>
-                </Card>
-              </TabsContent>
-              <TabsContent value="calendar" className="space-y-4">
-                <Card>
-                  <CardHeader>
-                    <CardTitle>Activity Calendar</CardTitle>
-                    <CardDescription>View your activity history and schedule</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <ActivityCalendar />
-                  </CardContent>
-                </Card>
-              </TabsContent>
             </Tabs>
           </main>
         </div>
@@ -349,4 +299,3 @@ export default function Dashboard() {
     </div>
   )
 }
-

@@ -9,28 +9,26 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 const generateData = () => {
   const data = []
   const now = new Date()
-  for (let i = 29; i >= 0; i--) {
+  for (let i = 6; i >= 0; i--) {
     const date = new Date(now)
     date.setDate(date.getDate() - i)
 
     // Generate some realistic looking data with slight trends
     const steps = Math.floor(6000 + Math.random() * 6000)
-    const heartRate = Math.floor(60 + Math.random() * 20)
-    const sleepHours = 5 + Math.random() * 4
-    const caloriesBurned = Math.floor(1800 + Math.random() * 800)
+    const activeMinutes = Math.floor(60 + Math.random() * 60)
+    const caloriesBurned = Math.floor(1500 + Math.random() * 1000)
 
     data.push({
-      date: date.toLocaleDateString("en-US", { month: "short", day: "numeric" }),
+      date: date.toLocaleDateString("en-US", { weekday: "short" }),
       steps,
-      heartRate,
-      sleepHours: Number.parseFloat(sleepHours.toFixed(1)),
+      activeMinutes,
       caloriesBurned,
     })
   }
   return data
 }
 
-export function HealthMetricsChart() {
+export function ActivityChart() {
   const [data, setData] = useState([])
   const [activeMetric, setActiveMetric] = useState("steps")
 
@@ -44,19 +42,14 @@ export function HealthMetricsChart() {
       color: "#3b82f6",
       unit: "steps",
     },
-    heartRate: {
-      name: "Heart Rate",
-      color: "#ef4444",
-      unit: "bpm",
-    },
-    sleepHours: {
-      name: "Sleep",
-      color: "#8b5cf6",
-      unit: "hours",
+    activeMinutes: {
+      name: "Active Minutes",
+      color: "#10b981",
+      unit: "min",
     },
     caloriesBurned: {
       name: "Calories",
-      color: "#10b981",
+      color: "#ef4444",
       unit: "kcal",
     },
   }
@@ -86,10 +79,9 @@ export function HealthMetricsChart() {
   return (
     <div className="space-y-4">
       <Tabs value={activeMetric} onValueChange={setActiveMetric} className="w-full">
-        <TabsList className="grid grid-cols-4 w-full">
+        <TabsList className="grid grid-cols-3 w-full">
           <TabsTrigger value="steps">Steps</TabsTrigger>
-          <TabsTrigger value="heartRate">Heart Rate</TabsTrigger>
-          <TabsTrigger value="sleepHours">Sleep</TabsTrigger>
+          <TabsTrigger value="activeMinutes">Active Minutes</TabsTrigger>
           <TabsTrigger value="caloriesBurned">Calories</TabsTrigger>
         </TabsList>
       </Tabs>
@@ -98,12 +90,7 @@ export function HealthMetricsChart() {
         <ResponsiveContainer width="100%" height="100%">
           <LineChart data={data} margin={{ top: 5, right: 5, left: 5, bottom: 5 }}>
             <CartesianGrid strokeDasharray="3 3" opacity={0.3} />
-            <XAxis
-              dataKey="date"
-              tick={{ fontSize: 12 }}
-              tickMargin={10}
-              tickFormatter={(value, index) => (index % 3 === 0 ? value : "")}
-            />
+            <XAxis dataKey="date" tick={{ fontSize: 12 }} tickMargin={10} />
             <YAxis tickFormatter={formatYAxis} tick={{ fontSize: 12 }} tickMargin={10} domain={["auto", "auto"]} />
             <Tooltip content={<CustomTooltip />} />
             <Line

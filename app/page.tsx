@@ -16,17 +16,11 @@ export default function Home() {
             <Link href="#features" className="text-muted-foreground hover:text-foreground transition-colors">
               Features
             </Link>
-            <Link href="#benefits" className="text-muted-foreground hover:text-foreground transition-colors">
-              Benefits
-            </Link>
             <Link href="#roadmap" className="text-muted-foreground hover:text-foreground transition-colors">
               Roadmap
             </Link>
           </nav>
           <div className="flex items-center gap-4">
-            <Link href="/login">
-              <Button variant="ghost">Login</Button>
-            </Link>
             <Link href="/dashboard">
               <Button>Get Started</Button>
             </Link>
@@ -52,11 +46,6 @@ export default function Home() {
                     <Button size="lg" className="w-full min-[400px]:w-auto">
                       Start Your Journey
                       <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
-                  </Link>
-                  <Link href="#features">
-                    <Button size="lg" variant="outline" className="w-full min-[400px]:w-auto">
-                      Explore Features
                     </Button>
                   </Link>
                 </div>
