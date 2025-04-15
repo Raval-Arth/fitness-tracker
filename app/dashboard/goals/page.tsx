@@ -131,16 +131,6 @@ export default function GoalsPage() {
                             <span>+18% vs last week</span>
                           </div>
                         </div>
-                        <div className="flex gap-2">
-                          <Button variant="ghost" size="icon" className="h-8 w-8">
-                            <Edit className="h-4 w-4" />
-                            <span className="sr-only">Edit</span>
-                          </Button>
-                          <Button variant="ghost" size="icon" className="h-8 w-8">
-                            <Trash2 className="h-4 w-4" />
-                            <span className="sr-only">Delete</span>
-                          </Button>
-                        </div>
                       </div>
                     </div>
 
@@ -179,16 +169,6 @@ export default function GoalsPage() {
                             <BarChart2 className="h-3.5 w-3.5" />
                             <span>-5% vs last week</span>
                           </div>
-                        </div>
-                        <div className="flex gap-2">
-                          <Button variant="ghost" size="icon" className="h-8 w-8">
-                            <Edit className="h-4 w-4" />
-                            <span className="sr-only">Edit</span>
-                          </Button>
-                          <Button variant="ghost" size="icon" className="h-8 w-8">
-                            <Trash2 className="h-4 w-4" />
-                            <span className="sr-only">Delete</span>
-                          </Button>
                         </div>
                       </div>
                     </div>
@@ -229,16 +209,6 @@ export default function GoalsPage() {
                             <span>Same as last week</span>
                           </div>
                         </div>
-                        <div className="flex gap-2">
-                          <Button variant="ghost" size="icon" className="h-8 w-8">
-                            <Edit className="h-4 w-4" />
-                            <span className="sr-only">Edit</span>
-                          </Button>
-                          <Button variant="ghost" size="icon" className="h-8 w-8">
-                            <Trash2 className="h-4 w-4" />
-                            <span className="sr-only">Delete</span>
-                          </Button>
-                        </div>
                       </div>
                     </div>
                   </div>
@@ -253,8 +223,8 @@ export default function GoalsPage() {
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-4">
-                      <div className="flex items-center justify-between rounded-lg border p-3">
-                        <div className="flex items-center gap-3">
+                      <div className="flex items-center justify-between rounded-lg border p-3 ">
+                        <div className="flex items-center gap-3 pr-4">
                           <div className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/10">
                             <TrendingUp className="h-5 w-5 text-primary" />
                           </div>
@@ -263,13 +233,10 @@ export default function GoalsPage() {
                             <p className="text-xs text-muted-foreground">Based on your recent progress</p>
                           </div>
                         </div>
-                        <Button variant="ghost" size="sm">
-                          <Plus className="h-4 w-4" />
-                        </Button>
                       </div>
 
-                      <div className="flex items-center justify-between rounded-lg border p-3">
-                        <div className="flex items-center gap-3">
+                      <div className="flex items-center justify-between rounded-lg border p-3 ">
+                        <div className="flex items-center gap-3 pr-4">
                           <div className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/10">
                             <Heart className="h-5 w-5 text-primary" />
                           </div>
@@ -278,13 +245,10 @@ export default function GoalsPage() {
                             <p className="text-xs text-muted-foreground">To improve cardiovascular health</p>
                           </div>
                         </div>
-                        <Button variant="ghost" size="sm">
-                          <Plus className="h-4 w-4" />
-                        </Button>
                       </div>
 
-                      <div className="flex items-center justify-between rounded-lg border p-3">
-                        <div className="flex items-center gap-3">
+                      <div className="flex items-center justify-between rounded-lg border p-3 ">
+                        <div className="flex items-center gap-3 pr-4">
                           <div className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/10">
                             <Clock className="h-5 w-5 text-primary" />
                           </div>
@@ -293,9 +257,6 @@ export default function GoalsPage() {
                             <p className="text-xs text-muted-foreground">For better recovery and performance</p>
                           </div>
                         </div>
-                        <Button variant="ghost" size="sm">
-                          <Plus className="h-4 w-4" />
-                        </Button>
                       </div>
                     </div>
                   </CardContent>

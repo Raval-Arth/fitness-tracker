@@ -20,8 +20,6 @@ export default function ActivityDashboard() {
         <TabsList>
           <TabsTrigger value="overview">Overview</TabsTrigger>
           <TabsTrigger value="workouts">Workouts</TabsTrigger>
-          <TabsTrigger value="trends">Trends</TabsTrigger>
-          <TabsTrigger value="history">History</TabsTrigger>
         </TabsList>
 
         <TabsContent value="overview" className="space-y-4">
@@ -95,10 +93,6 @@ export default function ActivityDashboard() {
                   <CardTitle>Recent Workouts</CardTitle>
                   <CardDescription>Your last 5 workout sessions</CardDescription>
                 </div>
-                <Button size="sm">
-                  <Plus className="mr-2 h-4 w-4" />
-                  Add Workout
-                </Button>
               </CardHeader>
               <CardContent>
                 <WorkoutList />
@@ -204,10 +198,6 @@ export default function ActivityDashboard() {
                 <CardTitle>Workout History</CardTitle>
                 <CardDescription>All your recorded workout sessions</CardDescription>
               </div>
-              <Button>
-                <Plus className="mr-2 h-4 w-4" />
-                New Workout
-              </Button>
             </CardHeader>
             <CardContent>
               <div className="space-y-8">
