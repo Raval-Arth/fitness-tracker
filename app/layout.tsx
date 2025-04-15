@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "FitIQ - Intelligent Fitness Tracking",
   description: "Personalized health and fitness monitoring with AI-powered insights",
-    generator: 'v0.dev'
+  generator: 'FitIQ'
 }
 
 export default function RootLayout({
